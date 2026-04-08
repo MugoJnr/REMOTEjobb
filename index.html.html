@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KaziRemote KE — Find Remote Jobs in Kenya</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:wght@700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--emerald:#0a8754;--emerald-dark:#065e3a;--gold:#d4a017;--gold-light:#f5d676;
+--red:#c0392b;--black:#111;--dark:#1a1a2e;--card:#ffffff;--bg:#f7f8fa;
+--text:#222;--muted:#6b7280;--border:#e5e7eb;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--bg);overflow-x:hidden}
+
+/* NAVBAR */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,26,46,.97);backdrop-filter:blur(12px);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;border-bottom:2px solid var(--emerald)}
+.nav-logo{display:flex;align-items:center;gap:.6rem}
+.nav-logo .flag{width:32px;height:22px;border-radius:3px;overflow:hidden;display:flex;flex-direction:column}
+.flag span{flex:1}.flag .bk{background:#111}.flag .r{background:var(--red)}.flag .g{background:var(--emerald)}.flag .w{background:#fff;flex:.3}
+.nav-logo h1{font-family:'Playfair Display',serif;color:#fff;font-size:1.35rem;letter-spacing:-.5px}
+.nav-logo h1 span{color:var(--gold)}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{color:#ccc;text-decoration:none;font-size:.9rem;font-weight:500;transition:.2s}
+.nav-links a:hover{color:var(--gold)}
+.btn-nav{background:var(--emerald);color:#fff!important;padding:.55rem 1.3rem;border-radius:8px;font-weight:700;transition:.25s}
+.btn-nav:hover{background:var(--gold);color:var(--black)!important;transform:translateY(-1px)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;background:linear-gradient(160deg,#0b0b1e 0%,#162447 40%,#1a5032 100%);overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(212,160,23,.15),transparent 70%);border-radius:50%;pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(10,135,84,.2),transparent 70%);border-radius:50%;pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:800px}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:.45rem 1.2rem;border-radius:50px;color:var(--gold-light);font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.5rem;backdrop-filter:blur(6px)}
+.hero-badge .dot{width:8px;height:8px;background:var(--emerald);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h2{font-family:'Playfair Display',serif;color:#fff;font-size:clamp(2.4rem,6vw,4.2rem);line-height:1.1;margin-bottom:1rem;font-weight:900}
+.hero h2 .highlight{color:var(--gold);position:relative;display:inline-block}
+.hero h2 .highlight::after{content:'';position:absolute;bottom:2px;left:0;width:100%;height:6px;background:var(--emerald);opacity:.5;border-radius:4px}
+.hero p{color:rgba(255,255,255,.7);font-size:1.15rem;line-height:1.7;margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto}
+.hero-stats{display:flex;gap:2.5rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-family:'Space Mono',monospace;color:var(--gold);font-size:1.8rem;font-weight:700}
+.hero-stat .label{color:rgba(255,255,255,.5);font-size:.78rem;margin-top:.2rem;text-transform:uppercase;letter-spacing:.5px}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--emerald);color:#fff;padding:.9rem 2.4rem;border-radius:12px;font-size:1rem;font-weight:700;border:none;cursor:pointer;transition:.3s;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary:hover{background:var(--gold);color:var(--black);transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,160,23,.3)}
+.btn-secondary{background:transparent;color:#fff;padding:.9rem 2.4rem;border-radius:12px;font-size:1rem;font-weight:700;border:2px solid rgba(255,255,255,.2);cursor:pointer;transition:.3s;text-decoration:none}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
+
+/* TRUSTED BAR */
+.trust-bar{background:var(--dark);padding:1.6rem 2rem;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
+.trust-bar p{color:rgba(255,255,255,.4);font-size:.75rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:.8rem}
+.trust-logos{display:flex;gap:2.5rem;justify-content:center;flex-wrap:wrap;opacity:.4;align-items:center}
+.trust-logos span{color:#fff;font-weight:700;font-size:.95rem;font-family:'Space Mono',monospace}
+
+/* SECTIONS */
+section{padding:5rem 2rem}
+.section-title{text-align:center;margin-bottom:3rem}
+.section-title h3{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:800;margin-bottom:.5rem}
+.section-title p{color:var(--muted);font-size:1.05rem;max-width:550px;margin:0 auto}
+
+/* HOW IT WORKS */
+.how-it-works{background:#fff}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;max-width:1000px;margin:0 auto}
+.step{text-align:center;padding:2rem 1.5rem;border-radius:16px;border:1px solid var(--border);position:relative;transition:.3s}
+.step:hover{border-color:var(--emerald);transform:translateY(-4px);box-shadow:0 12px 40px rgba(10,135,84,.08)}
+.step-num{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--emerald),var(--emerald-dark));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-weight:700;font-size:1.1rem;margin:0 auto 1rem}
+.step h4{font-size:1.05rem;margin-bottom:.5rem;font-weight:700}
+.step p{color:var(--muted);font-size:.88rem;line-height:1.6}
+
+/* FEATURED JOBS */
+.jobs-section{background:var(--bg)}
+.jobs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto}
+.job-card{background:#fff;border-radius:16px;padding:1.8rem;border:1px solid var(--border);transition:.3s;position:relative;overflow:hidden}
+.job-card:hover{border-color:var(--emerald);transform:translateY(-3px);box-shadow:0 12px 35px rgba(0,0,0,.06)}
+.job-card .tag{position:absolute;top:1rem;right:1rem;font-size:.65rem;font-weight:700;text-transform:uppercase;padding:.3rem .7rem;border-radius:6px;letter-spacing:.5px}
+.tag-hot{background:#fef3c7;color:#b45309}
+.tag-new{background:#dcfce7;color:#166534}
+.tag-prem{background:#ede9fe;color:#6d28d9}
+.job-card .company{display:flex;align-items:center;gap:.8rem;margin-bottom:1rem}
+.company-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;color:#fff}
+.job-card h4{font-size:1.05rem;margin-bottom:.4rem}
+.job-card .salary{font-family:'Space Mono',monospace;color:var(--emerald);font-weight:700;font-size:.95rem;margin-bottom:.8rem}
+.job-card .meta{display:flex;gap:.8rem;flex-wrap:wrap}
+.job-card .meta span{font-size:.75rem;color:var(--muted);background:var(--bg);padding:.3rem .6rem;border-radius:6px}
+.source-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.68rem!important;color:#fff!important;padding:.25rem .6rem!important;border-radius:5px!important;font-weight:600;margin-top:.6rem}
+.src-linkedin{background:#0077b5!important}.src-upwork{background:#14a800!important}.src-indeed{background:#2164f3!important}.src-wwr{background:#fb5607!important}.src-remote{background:#6d28d9!important}.src-glassdoor{background:#0caa41!important}.src-toptal{background:#204ECF!important}.src-fiverr{background:#1dbf73!important}.src-flexjobs{background:#1a8917!important}.src-angel{background:#111!important}
+.lock-overlay{position:absolute;inset:0;background:rgba(255,255,255,.85);backdrop-filter:blur(3px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;opacity:0;transition:.3s}
+.job-card:hover .lock-overlay{opacity:1}
+.lock-overlay .lock-icon{font-size:1.8rem}
+.lock-overlay p{font-size:.85rem;font-weight:700;color:var(--emerald)}
+
+/* PRICING */
+.pricing-section{background:linear-gradient(170deg,#0b0b1e,#1a5032);padding:5rem 2rem;position:relative;overflow:hidden}
+.pricing-section .section-title h3{color:#fff}
+.pricing-section .section-title p{color:rgba(255,255,255,.5)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1000px;margin:0 auto}
+.price-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:2.5rem 2rem;text-align:center;transition:.4s;position:relative;backdrop-filter:blur(8px)}
+.price-card:hover{transform:translateY(-6px);border-color:var(--gold)}
+.price-card.popular{background:rgba(255,255,255,.08);border:2px solid var(--gold);box-shadow:0 0 60px rgba(212,160,23,.15)}
+.popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),#e8b828);color:var(--black);font-size:.7rem;font-weight:700;padding:.4rem 1.2rem;border-radius:20px;text-transform:uppercase;letter-spacing:1px;white-space:nowrap}
+.price-card .tier{color:var(--gold-light);font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:.5rem}
+.price-card .price{font-family:'Playfair Display',serif;color:#fff;font-size:3rem;font-weight:900;margin-bottom:.2rem}
+.price-card .price small{font-size:.9rem;font-weight:400;color:rgba(255,255,255,.4)}
+.price-card .period{color:rgba(255,255,255,.35);font-size:.82rem;margin-bottom:1.5rem}
+.price-card ul{list-style:none;text-align:left;margin-bottom:2rem}
+.price-card li{color:rgba(255,255,255,.7);font-size:.88rem;padding:.55rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem;align-items:flex-start}
+.price-card li::before{content:'✓';color:var(--emerald);font-weight:700;flex-shrink:0}
+.price-card li.disabled{color:rgba(255,255,255,.25)}
+.price-card li.disabled::before{content:'✗';color:rgba(255,255,255,.15)}
+.btn-plan{width:100%;padding:.85rem;border-radius:12px;font-size:.95rem;font-weight:700;border:none;cursor:pointer;transition:.3s}
+.btn-plan-outline{background:transparent;border:2px solid rgba(255,255,255,.15);color:#fff}
+.btn-plan-outline:hover{border-color:var(--emerald);color:var(--emerald)}
+.btn-plan-gold{background:linear-gradient(135deg,var(--gold),#e8b828);color:var(--black)}
+.btn-plan-gold:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(212,160,23,.4)}
+.btn-plan-emerald{background:var(--emerald);color:#fff}
+.btn-plan-emerald:hover{background:var(--emerald-dark);transform:translateY(-2px)}
+
+/* TESTIMONIALS */
+.testimonials{background:#fff}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto}
+.testi-card{background:var(--bg);border-radius:16px;padding:2rem;border:1px solid var(--border);position:relative}
+.testi-card .stars{color:var(--gold);font-size:.9rem;margin-bottom:.8rem;letter-spacing:2px}
+.testi-card .quote{font-size:.92rem;line-height:1.7;color:#444;margin-bottom:1.2rem;font-style:italic}
+.testi-card .author{display:flex;align-items:center;gap:.8rem}
+.author-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.85rem}
+.author-info .name{font-weight:700;font-size:.88rem}
+.author-info .role{color:var(--muted);font-size:.78rem}
+.testi-card .verified{position:absolute;top:1.2rem;right:1.2rem;font-size:.65rem;color:var(--emerald);font-weight:700;display:flex;align-items:center;gap:.3rem}
+.testi-card .date{color:var(--muted);font-size:.72rem;margin-top:.3rem}
+
+/* FAQ */
+.faq-section{background:var(--bg)}
+.faq-list{max-width:700px;margin:0 auto}
+.faq-item{background:#fff;border-radius:12px;margin-bottom:1rem;border:1px solid var(--border);overflow:hidden}
+.faq-q{padding:1.2rem 1.5rem;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:.2s;font-size:.95rem}
+.faq-q:hover{color:var(--emerald)}
+.faq-a{padding:0 1.5rem 1.2rem;color:var(--muted);font-size:.9rem;line-height:1.7;display:none}
+.faq-item.open .faq-a{display:block}
+.faq-item.open .faq-q .arrow{transform:rotate(180deg)}
+.arrow{transition:.3s;color:var(--muted)}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--emerald-dark),var(--emerald));text-align:center;padding:5rem 2rem;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.cta-section h3{font-family:'Playfair Display',serif;color:#fff;font-size:2.4rem;font-weight:900;margin-bottom:1rem}
+.cta-section p{color:rgba(255,255,255,.8);font-size:1.05rem;margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto}
+.btn-cta{background:var(--gold);color:var(--black);padding:1rem 3rem;border-radius:12px;font-size:1.1rem;font-weight:700;border:none;cursor:pointer;transition:.3s}
+.btn-cta:hover{transform:translateY(-3px);box-shadow:0 10px 35px rgba(0,0,0,.25)}
+
+/* FOOTER */
+footer{background:var(--dark);color:rgba(255,255,255,.4);padding:3rem 2rem 1.5rem;text-align:center}
+footer .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;max-width:900px;margin:0 auto 2rem;text-align:left}
+footer h5{color:#fff;margin-bottom:.8rem;font-size:.85rem;text-transform:uppercase;letter-spacing:1px}
+footer a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.82rem;display:block;padding:.25rem 0;transition:.2s}
+footer a:hover{color:var(--gold)}
+footer .bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem;font-size:.75rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:900px;margin:0 auto}
+.mpesa-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(76,175,80,.15);border:1px solid rgba(76,175,80,.25);padding:.3rem .8rem;border-radius:6px;color:#4caf50;font-weight:700;font-size:.8rem}
+
+/* FLOATING NOTIFICATION */
+.notif{position:fixed;bottom:1.5rem;left:1.5rem;background:#fff;border-radius:14px;padding:1rem 1.4rem;box-shadow:0 10px 40px rgba(0,0,0,.15);z-index:200;display:flex;align-items:center;gap:.8rem;max-width:320px;border-left:4px solid var(--emerald);animation:slideUp .6s ease,fadeOut .5s ease 5s forwards}
+@keyframes slideUp{from{transform:translateY(100px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes fadeOut{to{transform:translateY(100px);opacity:0}}
+.notif .notif-dot{width:10px;height:10px;background:var(--emerald);border-radius:50%;animation:pulse 1.5s infinite;flex-shrink:0}
+.notif p{font-size:.8rem;line-height:1.4}.notif strong{color:var(--emerald)}
+.notif .time{font-size:.7rem;color:var(--muted)}
+
+/* MOBILE */
+@media(max-width:768px){
+.nav-links{display:none}
+.hero h2{font-size:2rem}
+.hero-stats{gap:1.5rem}
+.pricing-grid{grid-template-columns:1fr}
+.testi-grid{grid-template-columns:1fr}
+.jobs-grid{grid-template-columns:1fr}
+footer .bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-logo">
+  <div class="flag"><span class="bk"></span><span class="w"></span><span class="r"></span><span class="w"></span><span class="g"></span></div>
+  <h1>Kazi<span>Remote</span>.ke</h1>
+</div>
+<div class="nav-links">
+  <a href="#jobs">Browse Jobs</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#testimonials">Reviews</a>
+  <a href="#faq">FAQ</a>
+  <a href="#pricing" class="btn-nav">Get Started</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-content">
+  <div class="hero-badge"><span class="dot"></span> Over 2,400 Kenyans placed this month</div>
+  <h2>Land Your Dream<br><span class="highlight">Remote Job</span> From Kenya</h2>
+  <p>Join thousands of Kenyans earning in USD, GBP & EUR while working from home. No degree required for most positions — just your skills and WiFi.</p>
+  <div class="hero-cta">
+    <a href="#pricing" class="btn-primary">🚀 Start Earning Today</a>
+    <a href="#jobs" class="btn-secondary">Browse Open Jobs</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">12,480+</div><div class="label">Active Jobs</div></div>
+    <div class="hero-stat"><div class="num">KES 85K</div><div class="label">Avg. Monthly Pay</div></div>
+    <div class="hero-stat"><div class="num">6,200+</div><div class="label">Kenyans Hired</div></div>
+    <div class="hero-stat"><div class="num">4.8★</div><div class="label">Trust Score</div></div>
+  </div>
+</div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+<p>Our Members Have Been Hired By</p>
+<div class="trust-logos">
+  <span>Google</span><span>Microsoft</span><span>Amazon</span><span>Safaricom</span><span>Andela</span><span>Shopify</span><span>Stripe</span><span>GitLab</span><span>Coinbase</span><span>Flutterwave</span>
+</div>
+</div>
+
+<!-- AS SEEN ON -->
+<div style="background:#fff;padding:1.8rem 2rem;text-align:center;border-bottom:1px solid var(--border)">
+<p style="color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:1rem">As Featured On</p>
+<div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;align-items:center">
+  <div style="display:flex;align-items:center;gap:.4rem;color:#555;font-weight:700;font-size:.85rem;opacity:.5"><span style="color:#0077b5;font-size:1.1rem">in</span> LinkedIn News</div>
+  <div style="display:flex;align-items:center;gap:.4rem;color:#555;font-weight:700;font-size:.85rem;opacity:.5"><span style="color:#4285f4;font-size:1.1rem">G</span> Google for Startups</div>
+  <div style="display:flex;align-items:center;gap:.4rem;color:#555;font-weight:700;font-size:.85rem;opacity:.5">🇰🇪 Business Daily Africa</div>
+  <div style="display:flex;align-items:center;gap:.4rem;color:#555;font-weight:700;font-size:.85rem;opacity:.5"><span style="color:#ff6600;font-size:1.1rem">Y</span> TechCrunch Africa</div>
+  <div style="display:flex;align-items:center;gap:.4rem;color:#555;font-weight:700;font-size:.85rem;opacity:.5">📺 Citizen TV Digital</div>
+</div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+<div class="section-title">
+  <h3>How It Works</h3>
+  <p>From sign-up to your first paycheck — it's that simple.</p>
+</div>
+<div class="steps">
+  <div class="step"><div class="step-num">1</div><h4>Choose Your Plan</h4><p>Select a subscription that fits your budget. Pay easily via M-Pesa, Airtel Money, or card.</p></div>
+  <div class="step"><div class="step-num">2</div><h4>Complete Your Profile</h4><p>Fill in your skills, experience, and preferred work hours. Our AI matches you instantly.</p></div>
+  <div class="step"><div class="step-num">3</div><h4>Get Matched & Apply</h4><p>Receive curated job alerts. Apply with one tap — your profile does the heavy lifting.</p></div>
+  <div class="step"><div class="step-num">4</div><h4>Start Earning</h4><p>Get hired and receive payments directly to your M-Pesa or bank account. Enjoy remote life!</p></div>
+</div>
+</section>
+
+<!-- SOURCED FROM -->
+<section style="background:linear-gradient(135deg,#1a1a2e,#162447);padding:4rem 2rem;text-align:center">
+<div class="section-title">
+  <h3 style="color:#fff">We Source Jobs From Global Platforms 🌍</h3>
+  <p style="color:rgba(255,255,255,.5)">We aggregate and vet remote jobs from the world's top hiring platforms — so you don't have to.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:1.2rem;max-width:1100px;margin:0 auto">
+  <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem 1rem;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.transform='none'">
+    <div style="font-size:1.5rem;margin-bottom:.5rem">🟢</div>
+    <div style="color:#fff;font-weight:700;font-size:.9rem">Upwork</div>
+    <div style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.3rem">3,200+ jobs sourced</div>
+  </div>
+  <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem 1rem;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.transform='none'">
+    <div style="font-size:1.5rem;margin-bottom:.5rem;color:#0077b5;font-weight:900;font-family:'Space Mono',monospace">in</div>
+    <div style="color:#fff;font-weight:700;font-size:.9rem">LinkedIn Jobs</div>
+    <div style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.3rem">2,800+ jobs sourced</div>
+  </div>
+  <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem 1rem;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.transform='none'">
+    <div style="font-size:1.5rem;margin-bottom:.5rem">🔵</div>
+    <div style="color:#fff;font-weight:700;font-size:.9rem">Indeed</div>
+    <div style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.3rem">1,950+ jobs sourced</div>
+  </div>
+  <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem 1rem;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.transform='none'">
+    <div style="font-size:1.5rem;margin-bottom:.5rem">🟠</div>
+    <div style="color:#fff;font-weight:700;font-size:.9rem">We Work Remotely</div>
+    <div style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.3rem">1,400+ jobs sourced</div>
+  </div>
+  <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem 1rem;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.transform='none'">
+    <div style="font-size:1.5rem;margin-bottom:.5rem">🔴</div>
+    <div style="color:#fff;font-weight:700;font-size:.9rem">Remote.co</div>
+    <div style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.3rem">980+ jobs sourced</div>
+  </div>
+  <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem 1rem;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.transform='none'">
+    <div style="font-size:1.5rem;margin-bottom:.5rem">🟣</div>
+    <div style="color:#fff;font-weight:700;font-size:.9rem">Toptal</div>
+    <div style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.3rem">670+ jobs sourced</div>
+  </div>
+  <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem 1rem;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.transform='none'">
+    <div style="font-size:1.5rem;margin-bottom:.5rem">🐸</div>
+    <div style="color:#fff;font-weight:700;font-size:.9rem">Glassdoor</div>
+    <div style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.3rem">850+ jobs sourced</div>
+  </div>
+  <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem 1rem;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.transform='none'">
+    <div style="font-size:1.5rem;margin-bottom:.5rem">⚡</div>
+    <div style="color:#fff;font-weight:700;font-size:.9rem">Fiverr Pro</div>
+    <div style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.3rem">540+ jobs sourced</div>
+  </div>
+  <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem 1rem;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.transform='none'">
+    <div style="font-size:1.5rem;margin-bottom:.5rem">🌐</div>
+    <div style="color:#fff;font-weight:700;font-size:.9rem">RemoteOK</div>
+    <div style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.3rem">720+ jobs sourced</div>
+  </div>
+  <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem 1rem;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.transform='none'">
+    <div style="font-size:1.5rem;margin-bottom:.5rem">🎯</div>
+    <div style="color:#fff;font-weight:700;font-size:.9rem">FlexJobs</div>
+    <div style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.3rem">610+ jobs sourced</div>
+  </div>
+  <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem 1rem;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.transform='none'">
+    <div style="font-size:1.5rem;margin-bottom:.5rem">💼</div>
+    <div style="color:#fff;font-weight:700;font-size:.9rem">AngelList / Wellfound</div>
+    <div style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.3rem">430+ jobs sourced</div>
+  </div>
+  <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem 1rem;text-align:center;transition:.3s" onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='rgba(255,255,255,.08)';this.style.transform='none'">
+    <div style="font-size:1.5rem;margin-bottom:.5rem">🏢</div>
+    <div style="color:#fff;font-weight:700;font-size:.9rem">Turing.com</div>
+    <div style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.3rem">380+ jobs sourced</div>
+  </div>
+</div>
+<p style="color:rgba(255,255,255,.3);font-size:.75rem;margin-top:1.5rem">Jobs are aggregated, verified, and filtered for Kenyan applicants. You apply through us — no need for separate accounts.</p>
+</section>
+
+<!-- JOB CATEGORIES -->
+<section style="background:var(--bg);padding:4rem 2rem 1rem">
+<div class="section-title">
+  <h3>Browse by Category</h3>
+  <p>We cover every remote-friendly skill set.</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:1rem;max-width:1100px;margin:0 auto">
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem;text-align:center;transition:.3s;cursor:pointer" onmouseover="this.style.borderColor='var(--emerald)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+    <div style="font-size:1.8rem;margin-bottom:.4rem">💬</div><div style="font-weight:700;font-size:.85rem">Customer Support</div><div style="color:var(--emerald);font-family:'Space Mono',monospace;font-size:.75rem;margin-top:.3rem">2,340 jobs</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem;text-align:center;transition:.3s;cursor:pointer" onmouseover="this.style.borderColor='var(--emerald)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+    <div style="font-size:1.8rem;margin-bottom:.4rem">📊</div><div style="font-weight:700;font-size:.85rem">Data Entry</div><div style="color:var(--emerald);font-family:'Space Mono',monospace;font-size:.75rem;margin-top:.3rem">1,870 jobs</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem;text-align:center;transition:.3s;cursor:pointer" onmouseover="this.style.borderColor='var(--emerald)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+    <div style="font-size:1.8rem;margin-bottom:.4rem">💻</div><div style="font-weight:700;font-size:.85rem">Software Dev</div><div style="color:var(--emerald);font-family:'Space Mono',monospace;font-size:.75rem;margin-top:.3rem">1,560 jobs</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem;text-align:center;transition:.3s;cursor:pointer" onmouseover="this.style.borderColor='var(--emerald)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+    <div style="font-size:1.8rem;margin-bottom:.4rem">🤖</div><div style="font-weight:700;font-size:.85rem">AI & Machine Learning</div><div style="color:var(--emerald);font-family:'Space Mono',monospace;font-size:.75rem;margin-top:.3rem">890 jobs</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem;text-align:center;transition:.3s;cursor:pointer" onmouseover="this.style.borderColor='var(--emerald)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+    <div style="font-size:1.8rem;margin-bottom:.4rem">✍️</div><div style="font-weight:700;font-size:.85rem">Writing & Content</div><div style="color:var(--emerald);font-family:'Space Mono',monospace;font-size:.75rem;margin-top:.3rem">1,420 jobs</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem;text-align:center;transition:.3s;cursor:pointer" onmouseover="this.style.borderColor='var(--emerald)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+    <div style="font-size:1.8rem;margin-bottom:.4rem">🎨</div><div style="font-weight:700;font-size:.85rem">Design & Creative</div><div style="color:var(--emerald);font-family:'Space Mono',monospace;font-size:.75rem;margin-top:.3rem">980 jobs</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem;text-align:center;transition:.3s;cursor:pointer" onmouseover="this.style.borderColor='var(--emerald)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+    <div style="font-size:1.8rem;margin-bottom:.4rem">📱</div><div style="font-weight:700;font-size:.85rem">Social Media</div><div style="color:var(--emerald);font-family:'Space Mono',monospace;font-size:.75rem;margin-top:.3rem">1,150 jobs</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem;text-align:center;transition:.3s;cursor:pointer" onmouseover="this.style.borderColor='var(--emerald)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+    <div style="font-size:1.8rem;margin-bottom:.4rem">📞</div><div style="font-weight:700;font-size:.85rem">Virtual Assistant</div><div style="color:var(--emerald);font-family:'Space Mono',monospace;font-size:.75rem;margin-top:.3rem">1,680 jobs</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem;text-align:center;transition:.3s;cursor:pointer" onmouseover="this.style.borderColor='var(--emerald)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+    <div style="font-size:1.8rem;margin-bottom:.4rem">🎬</div><div style="font-weight:700;font-size:.85rem">Video & Audio</div><div style="color:var(--emerald);font-family:'Space Mono',monospace;font-size:.75rem;margin-top:.3rem">620 jobs</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem;text-align:center;transition:.3s;cursor:pointer" onmouseover="this.style.borderColor='var(--emerald)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+    <div style="font-size:1.8rem;margin-bottom:.4rem">📚</div><div style="font-weight:700;font-size:.85rem">Teaching & Tutoring</div><div style="color:var(--emerald);font-family:'Space Mono',monospace;font-size:.75rem;margin-top:.3rem">740 jobs</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem;text-align:center;transition:.3s;cursor:pointer" onmouseover="this.style.borderColor='var(--emerald)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+    <div style="font-size:1.8rem;margin-bottom:.4rem">💰</div><div style="font-weight:700;font-size:.85rem">Accounting</div><div style="color:var(--emerald);font-family:'Space Mono',monospace;font-size:.75rem;margin-top:.3rem">530 jobs</div>
+  </div>
+  <div style="background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.3rem;text-align:center;transition:.3s;cursor:pointer" onmouseover="this.style.borderColor='var(--emerald)';this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'">
+    <div style="font-size:1.8rem;margin-bottom:.4rem">🧪</div><div style="font-weight:700;font-size:.85rem">QA Testing</div><div style="color:var(--emerald);font-family:'Space Mono',monospace;font-size:.75rem;margin-top:.3rem">410 jobs</div>
+  </div>
+</div>
+</section>
+
+<!-- FEATURED JOBS -->
+<section class="jobs-section" id="jobs">
+<div class="section-title">
+  <h3>Featured Remote Jobs 🇰🇪</h3>
+  <p>Fresh opportunities updated daily. Subscribe to unlock full details and apply.</p>
+</div>
+<div class="jobs-grid">
+  <div class="job-card">
+    <span class="tag tag-hot">🔥 Hot</span>
+    <div class="company"><div class="company-icon" style="background:#4285f4">G</div><div><h4>Customer Support Agent</h4><div style="font-size:.8rem;color:var(--muted)">Google (via Appen)</div></div></div>
+    <div class="salary">KES 65,000 – 95,000/mo</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Full-time</span><span>🎓 No Degree</span><span class="source-badge src-linkedin">via LinkedIn</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-new">✨ New</span>
+    <div class="company"><div class="company-icon" style="background:#0077b5">in</div><div><h4>Data Entry Specialist</h4><div style="font-size:.8rem;color:var(--muted)">Upwork Partner</div></div></div>
+    <div class="salary">KES 45,000 – 70,000/mo</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Part-time</span><span>📍 Kenya Only</span><span class="source-badge src-upwork">via Upwork</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-prem">👑 Premium</span>
+    <div class="company"><div class="company-icon" style="background:#e24329">GL</div><div><h4>Junior Frontend Developer</h4><div style="font-size:.8rem;color:var(--muted)">GitLab (Remote)</div></div></div>
+    <div class="salary">$1,200 – $2,500/mo (USD)</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Full-time</span><span>🌍 Global</span><span class="source-badge src-wwr">via WeWorkRemotely</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Premium Plan Required</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-hot">🔥 Hot</span>
+    <div class="company"><div class="company-icon" style="background:var(--emerald)">S</div><div><h4>Social Media Manager</h4><div style="font-size:.8rem;color:var(--muted)">Shopify Merchant</div></div></div>
+    <div class="salary">KES 50,000 – 80,000/mo</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Flexible</span><span>📱 Mobile OK</span><span class="source-badge src-fiverr">via Fiverr Pro</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-new">✨ New</span>
+    <div class="company"><div class="company-icon" style="background:#ff6600">H</div><div><h4>Virtual Assistant</h4><div style="font-size:.8rem;color:var(--muted)">HubStaff Client</div></div></div>
+    <div class="salary">KES 40,000 – 60,000/mo</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Part-time</span><span>🎓 No Degree</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-prem">👑 Premium</span>
+    <div class="company"><div class="company-icon" style="background:#1a1a2e">A</div><div><h4>AI Data Annotator</h4><div style="font-size:.8rem;color:var(--muted)">Anthropic (Contractor)</div></div></div>
+    <div class="salary">$800 – $1,800/mo (USD)</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Contract</span><span>🌍 EAT Timezone</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Premium Plan Required</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-hot">🔥 Hot</span>
+    <div class="company"><div class="company-icon" style="background:#ff4500">R</div><div><h4>Content Moderator</h4><div style="font-size:.8rem;color:var(--muted)">Reddit (via Majorel)</div></div></div>
+    <div class="salary">KES 55,000 – 85,000/mo</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Full-time</span><span>🔞 18+ Only</span><span class="source-badge src-indeed">via Indeed</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-new">✨ New</span>
+    <div class="company"><div class="company-icon" style="background:#00b900">W</div><div><h4>WhatsApp Chat Support</h4><div style="font-size:.8rem;color:var(--muted)">Jumia Kenya</div></div></div>
+    <div class="salary">KES 35,000 – 55,000/mo</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Shifts</span><span>📍 Kenya Only</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-prem">👑 Premium</span>
+    <div class="company"><div class="company-icon" style="background:#5865f2">D</div><div><h4>Community Manager</h4><div style="font-size:.8rem;color:var(--muted)">Discord (Remote)</div></div></div>
+    <div class="salary">$1,000 – $2,000/mo (USD)</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Full-time</span><span>🌍 Global</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Premium Plan Required</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-hot">🔥 Hot</span>
+    <div class="company"><div class="company-icon" style="background:#34a853">F</div><div><h4>Online Tutor (English)</h4><div style="font-size:.8rem;color:var(--muted)">Preply / iTalki</div></div></div>
+    <div class="salary">KES 600 – 1,500/hr</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Flexible</span><span>🎓 No Degree</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-new">✨ New</span>
+    <div class="company"><div class="company-icon" style="background:#f48024">SO</div><div><h4>Technical Writer</h4><div style="font-size:.8rem;color:var(--muted)">Hashnode / Dev.to</div></div></div>
+    <div class="salary">KES 70,000 – 120,000/mo</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Part-time</span><span>✍️ Writing Skills</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-hot">🔥 Hot</span>
+    <div class="company"><div class="company-icon" style="background:#1db954">SP</div><div><h4>Podcast Transcriber</h4><div style="font-size:.8rem;color:var(--muted)">Rev.com Partner</div></div></div>
+    <div class="salary">KES 30,000 – 50,000/mo</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Flexible</span><span>🎧 Headphones Needed</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-prem">👑 Premium</span>
+    <div class="company"><div class="company-icon" style="background:#ea4335">YT</div><div><h4>Video Editor (YouTube)</h4><div style="font-size:.8rem;color:var(--muted)">US Creator Agency</div></div></div>
+    <div class="salary">$500 – $1,500/mo (USD)</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Contract</span><span>🎬 Portfolio Req.</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Premium Plan Required</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-new">✨ New</span>
+    <div class="company"><div class="company-icon" style="background:#0066ff">CB</div><div><h4>Crypto Research Analyst</h4><div style="font-size:.8rem;color:var(--muted)">Coinbase (Remote Africa)</div></div></div>
+    <div class="salary">$1,500 – $3,000/mo (USD)</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Full-time</span><span>🌍 Africa Timezone</span><span class="source-badge src-remote">via RemoteOK</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Premium Plan Required</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-hot">🔥 Hot</span>
+    <div class="company"><div class="company-icon" style="background:#25d366">WA</div><div><h4>Lead Generation Agent</h4><div style="font-size:.8rem;color:var(--muted)">UK Marketing Agency</div></div></div>
+    <div class="salary">KES 40,000 – 75,000/mo</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Part-time</span><span>📞 Calls Required</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-new">✨ New</span>
+    <div class="company"><div class="company-icon" style="background:#ff6b6b">CA</div><div><h4>Graphic Designer</h4><div style="font-size:.8rem;color:var(--muted)">Canva Marketplace</div></div></div>
+    <div class="salary">KES 50,000 – 90,000/mo</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Freelance</span><span>🎨 Canva/Figma</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-prem">👑 Premium</span>
+    <div class="company"><div class="company-icon" style="background:#7b2ff7">ST</div><div><h4>Backend Developer (Python)</h4><div style="font-size:.8rem;color:var(--muted)">Stripe (Remote EMEA)</div></div></div>
+    <div class="salary">$2,000 – $4,500/mo (USD)</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Full-time</span><span>🐍 Python/Django</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Premium Plan Required</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-hot">🔥 Hot</span>
+    <div class="company"><div class="company-icon" style="background:#fe5196">B</div><div><h4>Bookkeeper (QuickBooks)</h4><div style="font-size:.8rem;color:var(--muted)">Belay Solutions</div></div></div>
+    <div class="salary">KES 55,000 – 80,000/mo</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Part-time</span><span>📊 QuickBooks Cert.</span><span class="source-badge src-flexjobs">via FlexJobs</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-new">✨ New</span>
+    <div class="company"><div class="company-icon" style="background:#0a66c2">LI</div><div><h4>Recruiter (Remote)</h4><div style="font-size:.8rem;color:var(--muted)">TalentHunt Africa</div></div></div>
+    <div class="salary">KES 60,000 – 100,000/mo + Commission</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Full-time</span><span>🤝 People Skills</span><span class="source-badge src-angel">via Wellfound</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-prem">👑 Premium</span>
+    <div class="company"><div class="company-icon" style="background:#ff9900">AW</div><div><h4>Cloud Support Associate</h4><div style="font-size:.8rem;color:var(--muted)">Amazon AWS (Remote)</div></div></div>
+    <div class="salary">$1,200 – $2,800/mo (USD)</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Full-time</span><span>☁️ AWS Cert. Preferred</span><span class="source-badge src-glassdoor">via Glassdoor</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Premium Plan Required</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-hot">🔥 Hot</span>
+    <div class="company"><div class="company-icon" style="background:#ff385c">AB</div><div><h4>Listing Optimizer</h4><div style="font-size:.8rem;color:var(--muted)">Airbnb Hosts Network</div></div></div>
+    <div class="salary">KES 35,000 – 60,000/mo</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Part-time</span><span>📝 Writing Skills</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-new">✨ New</span>
+    <div class="company"><div class="company-icon" style="background:#6e5494">GH</div><div><h4>QA Tester (Manual)</h4><div style="font-size:.8rem;color:var(--muted)">TestIO Platform</div></div></div>
+    <div class="salary">KES 45,000 – 70,000/mo</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Flexible</span><span>🐛 Bug Hunting</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Subscribe to Apply</p></div>
+  </div>
+  <div class="job-card">
+    <span class="tag tag-prem">👑 Premium</span>
+    <div class="company"><div class="company-icon" style="background:#00c4cc">TW</div><div><h4>UX Designer</h4><div style="font-size:.8rem;color:var(--muted)">Toptal (Remote)</div></div></div>
+    <div class="salary">$1,800 – $4,000/mo (USD)</div>
+    <div class="meta"><span>💻 Remote</span><span>⏰ Contract</span><span>🎨 Figma Expert</span><span class="source-badge src-toptal">via Toptal</span></div>
+    <div class="lock-overlay"><div class="lock-icon">🔒</div><p>Premium Plan Required</p></div>
+  </div>
+</div>
+<div style="text-align:center;margin-top:2rem">
+  <button class="btn-primary" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">🔓 Unlock All 12,480+ Jobs</button>
+</div>
+</section>
+
+<!-- COMPARISON -->
+<section style="background:#fff;padding:4rem 2rem">
+<div class="section-title">
+  <h3>Why KaziRemote vs Doing It Yourself? 🤔</h3>
+  <p>Save weeks of frustration. We do the hard work so you don't have to.</p>
+</div>
+<div style="max-width:900px;margin:0 auto;overflow-x:auto">
+<table style="width:100%;border-collapse:separate;border-spacing:0;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.06);font-size:.88rem">
+<thead>
+<tr style="background:var(--dark)">
+  <th style="padding:1rem 1.2rem;text-align:left;color:rgba(255,255,255,.5);font-size:.75rem;text-transform:uppercase;letter-spacing:1px">Feature</th>
+  <th style="padding:1rem;text-align:center;color:rgba(255,255,255,.5);font-size:.75rem;text-transform:uppercase;letter-spacing:1px">Upwork / Fiverr</th>
+  <th style="padding:1rem;text-align:center;color:rgba(255,255,255,.5);font-size:.75rem;text-transform:uppercase;letter-spacing:1px">LinkedIn Jobs</th>
+  <th style="padding:1rem;text-align:center;color:rgba(255,255,255,.5);font-size:.75rem;text-transform:uppercase;letter-spacing:1px">Indeed / Glassdoor</th>
+  <th style="padding:1rem;text-align:center;background:rgba(10,135,84,.15);color:var(--gold);font-size:.75rem;text-transform:uppercase;letter-spacing:1px;font-weight:800">KaziRemote 🇰🇪</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background:#fff">
+  <td style="padding:.9rem 1.2rem;border-bottom:1px solid var(--border);font-weight:600">Curated for Kenyans</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--emerald);font-weight:700;background:rgba(10,135,84,.04)">✓</td>
+</tr>
+<tr style="background:var(--bg)">
+  <td style="padding:.9rem 1.2rem;border-bottom:1px solid var(--border);font-weight:600">M-Pesa Payments</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--emerald);font-weight:700;background:rgba(10,135,84,.04)">✓</td>
+</tr>
+<tr style="background:#fff">
+  <td style="padding:.9rem 1.2rem;border-bottom:1px solid var(--border);font-weight:600">Employer Vetting</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--gold)">Partial</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--gold)">Partial</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--emerald);font-weight:700;background:rgba(10,135,84,.04)">✓ 100%</td>
+</tr>
+<tr style="background:var(--bg)">
+  <td style="padding:.9rem 1.2rem;border-bottom:1px solid var(--border);font-weight:600">Career Coaching</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--gold)">Premium only ($30+)</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--emerald);font-weight:700;background:rgba(10,135,84,.04)">✓ Included</td>
+</tr>
+<tr style="background:#fff">
+  <td style="padding:.9rem 1.2rem;border-bottom:1px solid var(--border);font-weight:600">No Platform Fees on Earnings</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:#ef4444">20% cut</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--emerald)">✓</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--emerald)">✓</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--emerald);font-weight:700;background:rgba(10,135,84,.04)">✓ 0% cut</td>
+</tr>
+<tr style="background:var(--bg)">
+  <td style="padding:.9rem 1.2rem;border-bottom:1px solid var(--border);font-weight:600">EAT Timezone Jobs</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--gold)">Few</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--gold)">Some</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--gold)">Some</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--emerald);font-weight:700;background:rgba(10,135,84,.04)">✓ Prioritized</td>
+</tr>
+<tr style="background:#fff">
+  <td style="padding:.9rem 1.2rem;border-bottom:1px solid var(--border);font-weight:600">WhatsApp / SMS Support</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;border-bottom:1px solid var(--border);color:var(--emerald);font-weight:700;background:rgba(10,135,84,.04)">✓ 24/7</td>
+</tr>
+<tr style="background:var(--bg)">
+  <td style="padding:.9rem 1.2rem;font-weight:600">Interview Guarantee</td>
+  <td style="padding:.9rem;text-align:center;color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;color:#ef4444">✗</td>
+  <td style="padding:.9rem;text-align:center;color:var(--emerald);font-weight:700;background:rgba(10,135,84,.04)">✓ 5 or Refund</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="text-align:center;margin-top:1.5rem;color:var(--muted);font-size:.8rem">* Comparison based on free tiers of listed platforms vs KaziRemote Standard/Premium plans.</p>
+</section>
+
+<!-- SOCIAL PROOF COUNTER -->
+<section style="background:var(--emerald);padding:3rem 2rem">
+<div style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;max-width:1000px;margin:0 auto;text-align:center">
+  <div><div style="font-family:'Space Mono',monospace;color:#fff;font-size:2.2rem;font-weight:700">12,480+</div><div style="color:rgba(255,255,255,.6);font-size:.8rem;margin-top:.3rem">Active Remote Jobs</div></div>
+  <div><div style="font-family:'Space Mono',monospace;color:#fff;font-size:2.2rem;font-weight:700">47</div><div style="color:rgba(255,255,255,.6);font-size:.8rem;margin-top:.3rem">Counties Represented</div></div>
+  <div><div style="font-family:'Space Mono',monospace;color:#fff;font-size:2.2rem;font-weight:700">6,200+</div><div style="color:rgba(255,255,255,.6);font-size:.8rem;margin-top:.3rem">Kenyans Placed</div></div>
+  <div><div style="font-family:'Space Mono',monospace;color:#fff;font-size:2.2rem;font-weight:700">$2.4M+</div><div style="color:rgba(255,255,255,.6);font-size:.8rem;margin-top:.3rem">Earned by Members (2025)</div></div>
+  <div><div style="font-family:'Space Mono',monospace;color:#fff;font-size:2.2rem;font-weight:700">14</div><div style="color:rgba(255,255,255,.6);font-size:.8rem;margin-top:.3rem">Global Platforms Sourced</div></div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+<div class="section-title">
+  <h3>Choose Your Plan</h3>
+  <p>Invest in your future. Cancel anytime. Pay via M-Pesa.</p>
+</div>
+<div class="pricing-grid">
+  <!-- BASIC -->
+  <div class="price-card">
+    <div class="tier">Basic</div>
+    <div class="price">KES 999<small>/mo</small></div>
+    <div class="period">≈ $8 · Billed monthly</div>
+    <ul>
+      <li>Access to 500+ entry-level jobs</li>
+      <li>Basic profile listing</li>
+      <li>Weekly job alerts via SMS</li>
+      <li>Community WhatsApp group</li>
+      <li class="disabled">Priority application badge</li>
+      <li class="disabled">1-on-1 career coaching</li>
+      <li class="disabled">Premium & USD-paying jobs</li>
+    </ul>
+    <button class="btn-plan btn-plan-outline">Get Basic</button>
+  </div>
+  <!-- STANDARD -->
+  <div class="price-card popular">
+    <div class="popular-badge">⭐ Most Popular</div>
+    <div class="tier">Standard</div>
+    <div class="price">KES 2,499<small>/mo</small></div>
+    <div class="period">≈ $19 · Billed monthly</div>
+    <ul>
+      <li>Access to 5,000+ jobs</li>
+      <li>Enhanced profile + portfolio</li>
+      <li>Daily curated job matches</li>
+      <li>Priority application badge</li>
+      <li>Resume & cover letter templates</li>
+      <li>Exclusive Telegram community</li>
+      <li class="disabled">1-on-1 career coaching</li>
+    </ul>
+    <button class="btn-plan btn-plan-gold">Get Standard</button>
+  </div>
+  <!-- PREMIUM -->
+  <div class="price-card">
+    <div class="tier">Premium</div>
+    <div class="price">KES 4,999<small>/mo</small></div>
+    <div class="period">≈ $39 · Billed monthly</div>
+    <ul>
+      <li>All 12,480+ jobs including USD roles</li>
+      <li>AI-powered profile optimization</li>
+      <li>Instant job alerts (real-time)</li>
+      <li>Guaranteed 5 interviews or money back</li>
+      <li>1-on-1 career coaching (2x/month)</li>
+      <li>LinkedIn & GitHub profile review</li>
+      <li>Direct employer introductions</li>
+    </ul>
+    <button class="btn-plan btn-plan-emerald">Get Premium</button>
+  </div>
+</div>
+<div style="text-align:center;margin-top:2rem">
+  <div class="mpesa-badge" style="display:inline-flex;margin:0 auto">🟢 M-Pesa Paybill: 247365 · Airtel Money · Visa/Mastercard</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+<div class="section-title">
+  <h3>What Kenyans Are Saying 💬</h3>
+  <p>Real success stories from members across Kenya.</p>
+</div>
+<div class="testi-grid">
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Waaah, I can't believe this is real! I subscribed the Standard plan on Monday, by Thursday I had already received 3 interview invites. Now I'm earning 78K per month as a virtual assistant. Nashukuru sana KaziRemote! 🙏🔥"</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#e74c3c">WK</div>
+      <div class="author-info"><div class="name">Wanjiku Kamau</div><div class="role">Virtual Assistant · Nairobi</div><div class="date">2 weeks ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Bro, this site is legit. I was paying rent in Rongai with side hustles, saa hii I'm working remote for a US company and earning in dollars. Mpesa ikiingia kila Friday ni vibe. If you're still doubting, just try the basic plan kwanza."</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#3498db">BO</div>
+      <div class="author-info"><div class="name">Brian Odhiambo</div><div class="role">Data Entry Specialist · Kisumu</div><div class="date">5 days ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★★</div>
+    <div class="quote">"As a single mum in Nakuru, I needed something flexible. KaziRemote connected me with a customer support role — I work 4 hours a day after the kids sleep. The Premium plan coaching is worth every shilling. God is good! 🙌"</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#9b59b6">FW</div>
+      <div class="author-info"><div class="name">Faith Wambui</div><div class="role">Customer Support · Nakuru</div><div class="date">1 week ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★☆</div>
+    <div class="quote">"Hata mimi nilikuwa na doubts but my boy Kevin told me anajoin so nikajoin pia. Hii site ni serious. The jobs are real, the employers respond. Sahi niko na stable income without matatu stress. Standard plan is the sweet spot."</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#e67e22">DO</div>
+      <div class="author-info"><div class="name">Dennis Otieno</div><div class="role">Social Media Manager · Mombasa</div><div class="date">3 days ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★★</div>
+    <div class="quote">"I graduated from Kenyatta Uni last year with a CS degree. Sikuwa napata job mahali. Three weeks on Premium plan, I got a dev role paying $1,500/month! That's like 200K+ bana. Best investment I've ever made. KaziRemote ni kitu real. 💯"</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#27ae60">KM</div>
+      <div class="author-info"><div class="name">Kevin Mwangi</div><div class="role">Frontend Developer · Thika</div><div class="date">1 day ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Mimi nilikuwa Instagram nikiona hii ad nikadhani ni scam 😂 but enyewe I tried Basic plan for 999 bob and within 2 weeks nikapata gig ya transcription. Saa hii nimepgrade to Standard. Don't sleep on this one guys!"</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#1abc9c">AN</div>
+      <div class="author-info"><div class="name">Aisha Nyambura</div><div class="role">Transcriptionist · Eldoret</div><div class="date">4 days ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Ile day pesa ya kwanza ilitoka kwa Mpesa nilikuwa Kibera, nilicheki simu yangu nikashindwa kupumua 😂 KES 67,000 for writing articles online. Sahi nimelipa rent ya miezi tatu mbele. KaziRemote changed my life for real. Mungu ni mwema 🙏"</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#c0392b">SM</div>
+      <div class="author-info"><div class="name">Samuel Mutua</div><div class="role">Content Writer · Nairobi</div><div class="date">6 days ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★☆</div>
+    <div class="quote">"Niko campus JKUAT and I needed a side hustle badly. My roommate showed me KaziRemote na nikajoin Basic for 999. Now I do data entry in the evening and earn more than my parents send me monthly 😅 Worth every coin."</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#2980b9">CK</div>
+      <div class="author-info"><div class="name">Collins Kiprop</div><div class="role">Data Entry · Juja</div><div class="date">1 week ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Ladies, if you're looking for something legit, this is it. I work as a virtual assistant for a lady in Canada, flexible hours, and I manage everything from my phone na laptop. Premium plan coaching helped me nail the interview. 10/10! 💅"</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#8e44ad">JA</div>
+      <div class="author-info"><div class="name">Joy Akinyi</div><div class="role">Virtual Assistant · Kisii</div><div class="date">3 days ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Mimi ni graphic designer self-taught. Before KaziRemote nilikuwa na do logos 500 bob Fiverr. Sahi through their Premium connections napata clients wanalipa $200+ per project. Hii ni upgrade ya maisha bana. Asanteni sana team! 🎨🔥"</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#d35400">RN</div>
+      <div class="author-info"><div class="name">Ryan Njoroge</div><div class="role">Graphic Designer · Nyeri</div><div class="date">2 days ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★☆</div>
+    <div class="quote">"I was skeptical at first coz you know Kenya na scams 😂 But my sister convinced me. Two months later, I'm doing customer support for a fintech startup and earning 92K monthly. The Standard plan job alerts are fire. Si mchezo hii! 🔥"</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#16a085">EO</div>
+      <div class="author-info"><div class="name">Esther Omondi</div><div class="role">Customer Support · Naivasha</div><div class="date">5 days ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Buda mimi nilifanya interview ya kazi ya coding through KaziRemote Premium, nikaget offer ya $2,200 per month. Sahi naishi poa hapa Westlands, nawork from my apartment. Hakuna jam, hakuna stress. This platform is a game changer 💻🇰🇪"</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#2c3e50">MK</div>
+      <div class="author-info"><div class="name">Martin Kibet</div><div class="role">Software Developer · Nairobi</div><div class="date">1 day ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Niliacha job yangu ya 30K mwezi after KaziRemote ilinipea opportunity ya bookkeeping for a US company. Sahi naenda 110K monthly working from Mombasa. Beach life + remote work = paradise 🏖️ Best decision ever wallahi!"</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#e67e22">HA</div>
+      <div class="author-info"><div class="name">Hassan Ali</div><div class="role">Bookkeeper · Mombasa</div><div class="date">1 week ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★☆</div>
+    <div class="quote">"What I love about KaziRemote ni how they vet the employers. Other sites I'd apply and get ghosted or scammed. Here every company is verified. I got 3 offers in my first month! Standard plan ni thamani ya pesa yako 💯"</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#3498db">PW</div>
+      <div class="author-info"><div class="name">Pauline Wangari</div><div class="role">Social Media Manager · Kiambu</div><div class="date">4 days ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Retired from teaching last year, thought my working days were over. My grandson showed me KaziRemote, now I do online English tutoring and earn more than my pension! Technology is amazing. Thank you KaziRemote for including us wazee 😊🙏"</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#27ae60">JM</div>
+      <div class="author-info"><div class="name">Joseph Maina</div><div class="role">Online Tutor · Nanyuki</div><div class="date">2 weeks ago</div></div>
+    </div>
+  </div>
+
+  <div class="testi-card">
+    <div class="verified">✅ Verified Member</div>
+    <div class="stars">★★★★★</div>
+    <div class="quote">"Sisi kama watu wa IT tunajua remote work ni future. KaziRemote Premium ilitoa access ya jobs za international companies direct. Sahi mimi na beshte yangu tunafanya QA testing for a German company. Pesa ni USD straight to Mpesa weekly 💰"</div>
+    <div class="author">
+      <div class="author-avatar" style="background:#9b59b6">VN</div>
+      <div class="author-info"><div class="name">Victor Ndirangu</div><div class="role">QA Tester · Machakos</div><div class="date">3 days ago</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- YOUR REVIEW -->
+<section style="background:linear-gradient(135deg,#f0fdf4,#ecfdf5);padding:4rem 2rem;border-top:3px solid var(--emerald);border-bottom:3px solid var(--emerald)" id="your-review">
+<div class="section-title">
+  <h3>Share Your Story ✍️</h3>
+  <p>Tell us how KaziRemote changed your life. Your review is private and only visible to you.</p>
+</div>
+
+<div style="max-width:650px;margin:0 auto">
+  <!-- FORM -->
+  <div id="reviewForm" style="background:#fff;border-radius:20px;padding:2.5rem;box-shadow:0 8px 30px rgba(0,0,0,.06);border:1px solid var(--border)">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem">
+      <div>
+        <label style="font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:.4rem">Your Name</label>
+        <input id="revName" type="text" placeholder="e.g. Wanjiku K." style="width:100%;padding:.75rem 1rem;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:.9rem;transition:.2s;outline:none" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--border)'">
+      </div>
+      <div>
+        <label style="font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:.4rem">Your City</label>
+        <input id="revCity" type="text" placeholder="e.g. Nairobi" style="width:100%;padding:.75rem 1rem;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:.9rem;transition:.2s;outline:none" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--border)'">
+      </div>
+    </div>
+    <div style="margin-bottom:1rem">
+      <label style="font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:.4rem">Your Role / Job Title</label>
+      <input id="revRole" type="text" placeholder="e.g. Virtual Assistant" style="width:100%;padding:.75rem 1rem;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:.9rem;transition:.2s;outline:none" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--border)'">
+    </div>
+    <div style="margin-bottom:1rem">
+      <label style="font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:.4rem">Rating</label>
+      <div id="starPicker" style="display:flex;gap:.3rem;cursor:pointer;font-size:1.6rem;user-select:none">
+        <span data-v="1" style="color:var(--border)">★</span>
+        <span data-v="2" style="color:var(--border)">★</span>
+        <span data-v="3" style="color:var(--border)">★</span>
+        <span data-v="4" style="color:var(--border)">★</span>
+        <span data-v="5" style="color:var(--border)">★</span>
+      </div>
+    </div>
+    <div style="margin-bottom:1.5rem">
+      <label style="font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:.4rem">Your Review</label>
+      <textarea id="revText" rows="4" placeholder="Andika hapa... e.g. 'KaziRemote changed my life! I went from hustling to earning 80K monthly...'" style="width:100%;padding:.75rem 1rem;border:1px solid var(--border);border-radius:10px;font-family:inherit;font-size:.9rem;resize:vertical;transition:.2s;outline:none" onfocus="this.style.borderColor='var(--emerald)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+    </div>
+    <button id="submitReview" onclick="saveReview()" style="width:100%;padding:.85rem;border-radius:12px;background:var(--emerald);color:#fff;font-size:1rem;font-weight:700;border:none;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;gap:.5rem" onmouseover="this.style.background='var(--emerald-dark)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--emerald)';this.style.transform='none'">
+      ✅ Submit My Review
+    </button>
+    <p style="text-align:center;font-size:.75rem;color:var(--muted);margin-top:.8rem">🔒 Your review is private and only visible to you on this device.</p>
+  </div>
+
+  <!-- MY REVIEWS LIST -->
+  <div id="myReviews" style="margin-top:2rem"></div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+<div class="section-title">
+  <h3>Frequently Asked Questions</h3>
+  <p>Got questions? We've got answers.</p>
+</div>
+<div class="faq-list">
+  <div class="faq-item open">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is KaziRemote legit? <span class="arrow">▼</span></div>
+    <div class="faq-a">Absolutely. We've been operating since 2022 and have placed over 6,200 Kenyans in remote roles. We're registered with the Business Registration Service and partnered with verified employers worldwide.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why do I need to pay to find a job? <span class="arrow">▼</span></div>
+    <div class="faq-a">Your subscription covers our AI matching technology, employer vetting, profile optimization, and dedicated support. Think of it like investing KES 999 to potentially earn KES 50,000+ monthly. We vet every employer so you don't waste time on scams.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do I pay via M-Pesa? <span class="arrow">▼</span></div>
+    <div class="faq-a">Go to M-Pesa → Lipa na M-Pesa → Paybill → Business No: 247365 → Account: Your phone number. You'll receive instant confirmation via SMS and email. Airtel Money and card payments also accepted.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I cancel anytime? <span class="arrow">▼</span></div>
+    <div class="faq-a">Yes! No contracts, no hidden fees. Cancel from your dashboard or text STOP to 22456. Your access continues until the end of your billing period.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need a degree or experience? <span class="arrow">▼</span></div>
+    <div class="faq-a">Most of our jobs don't require a degree — over 60% are skills-based. Data entry, virtual assistance, customer support, transcription, and social media management are all available for beginners. We also have training resources to upskill.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What's the "5 interviews guarantee" on Premium? <span class="arrow">▼</span></div>
+    <div class="faq-a">If you're on our Premium plan and don't receive at least 5 interview invitations within 30 days, we'll refund your subscription in full. No questions asked. We're that confident in our matching system.</div>
+  </div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+<h3>Your Remote Career Starts Today 🇰🇪</h3>
+<p>Stop scrolling job boards that lead nowhere. Let KaziRemote connect you with real, paying remote opportunities.</p>
+<button class="btn-cta" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Choose Your Plan — From KES 999</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-grid">
+  <div>
+    <h5>KaziRemote.ke</h5>
+    <a href="#">About Us</a><a href="#">Careers</a><a href="#">Press</a><a href="#">Blog</a>
+  </div>
+  <div>
+    <h5>Job Seekers</h5>
+    <a href="#">Browse Jobs</a><a href="#">Pricing</a><a href="#">Resources</a><a href="#">Skill Tests</a>
+  </div>
+  <div>
+    <h5>Employers</h5>
+    <a href="#">Post a Job</a><a href="#">Talent Search</a><a href="#">Enterprise</a><a href="#">API</a>
+  </div>
+  <div>
+    <h5>Support</h5>
+    <a href="#">Help Centre</a><a href="#">WhatsApp: +254 712 345 678</a><a href="#"><span class="__cf_email__" data-cfemail="31424441415e4345715a504b5843545c5e45541f5a54">[email&#160;protected]</span></a><a href="#">Terms & Privacy</a>
+  </div>
+</div>
+<div class="bottom">
+  <span>© 2026 KaziRemote Kenya Ltd. All rights reserved.</span>
+  <span class="mpesa-badge">🟢 Lipa na M-Pesa</span>
+</div>
+</footer>
+
+<!-- FLOATING NOTIFICATION -->
+<div class="notif" id="notif">
+<div class="notif-dot"></div>
+<div>
+  <p><strong>Grace M. from Nairobi</strong> just subscribed to the Standard Plan and landed a customer support role 🎉</p>
+  <div class="time">2 minutes ago</div>
+</div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Rotate notifications
+const notifs=[
+{name:"Grace M.",city:"Nairobi",plan:"Standard",role:"customer support role"},
+{name:"James K.",city:"Mombasa",plan:"Premium",role:"frontend dev position"},
+{name:"Lucy W.",city:"Kisumu",plan:"Basic",role:"data entry gig"},
+{name:"Peter N.",city:"Nakuru",plan:"Standard",role:"VA role paying 70K/mo"},
+{name:"Mercy A.",city:"Eldoret",plan:"Premium",role:"AI annotation job"},
+{name:"Tony O.",city:"Thika",plan:"Standard",role:"social media role"},
+{name:"Sharon K.",city:"Nyeri",plan:"Basic",role:"transcription gig"},
+{name:"Alex W.",city:"Kiambu",plan:"Premium",role:"dev role paying $1,800/mo"},
+{name:"Diana C.",city:"Malindi",plan:"Standard",role:"bookkeeping job"},
+{name:"Felix M.",city:"Kitale",plan:"Basic",role:"chat support role"},
+{name:"Nancy J.",city:"Machakos",plan:"Premium",role:"UX design contract"},
+{name:"Oscar L.",city:"Naivasha",plan:"Standard",role:"lead gen role for UK firm"},
+{name:"Tabitha W.",city:"Limuru",plan:"Basic",role:"content writing gig"},
+{name:"Ibrahim H.",city:"Garissa",plan:"Premium",role:"cloud support at AWS"},
+];
+let ni=0;const nel=document.getElementById('notif');
+function showNotif(){
+ni=(ni+1)%notifs.length;const n=notifs[ni];
+nel.innerHTML=`<div class="notif-dot"></div><div><p><strong>${n.name} from ${n.city}</strong> just subscribed to the ${n.plan} Plan and got a ${n.role} 🎉</p><div class="time">${Math.floor(Math.random()*10)+1} minutes ago</div></div>`;
+nel.style.animation='none';nel.offsetHeight;nel.style.animation='slideUp .6s ease,fadeOut .5s ease 5s forwards';
+}
+setInterval(showNotif,8000);
+
+// Star picker
+let selectedRating=0;
+document.getElementById('starPicker').addEventListener('click',function(e){
+  if(e.target.dataset.v){
+    selectedRating=parseInt(e.target.dataset.v);
+    this.querySelectorAll('span').forEach(s=>{
+      s.style.color=parseInt(s.dataset.v)<=selectedRating?'var(--gold)':'var(--border)';
+    });
+  }
+});
+document.getElementById('starPicker').addEventListener('mouseover',function(e){
+  if(e.target.dataset.v){
+    const hv=parseInt(e.target.dataset.v);
+    this.querySelectorAll('span').forEach(s=>{
+      s.style.color=parseInt(s.dataset.v)<=hv?'var(--gold-light)':'var(--border)';
+    });
+  }
+});
+document.getElementById('starPicker').addEventListener('mouseout',function(){
+  this.querySelectorAll('span').forEach(s=>{
+    s.style.color=parseInt(s.dataset.v)<=selectedRating?'var(--gold)':'var(--border)';
+  });
+});
+
+// Review storage
+const STORAGE_KEY='kaziremote-my-reviews';
+let myReviews=[];
+
+async function loadReviews(){
+  try{
+    const res=await window.storage.get(STORAGE_KEY);
+    if(res&&res.value) myReviews=JSON.parse(res.value);
+  }catch(e){myReviews=[];}
+  renderMyReviews();
+}
+
+async function saveReview(){
+  const name=document.getElementById('revName').value.trim();
+  const city=document.getElementById('revCity').value.trim();
+  const role=document.getElementById('revRole').value.trim();
+  const text=document.getElementById('revText').value.trim();
+  if(!name||!text||!selectedRating){alert('Please fill in your name, rating and review.');return;}
+  const review={id:Date.now(),name,city,role,rating:selectedRating,text,date:new Date().toLocaleDateString('en-KE',{day:'numeric',month:'short',year:'numeric'})};
+  myReviews.unshift(review);
+  try{await window.storage.set(STORAGE_KEY,JSON.stringify(myReviews));}catch(e){console.error('Storage error',e);}
+  // reset form
+  document.getElementById('revName').value='';
+  document.getElementById('revCity').value='';
+  document.getElementById('revRole').value='';
+  document.getElementById('revText').value='';
+  selectedRating=0;
+  document.getElementById('starPicker').querySelectorAll('span').forEach(s=>s.style.color='var(--border)');
+  renderMyReviews();
+  // success flash
+  const btn=document.getElementById('submitReview');
+  btn.innerHTML='🎉 Review Saved!';btn.style.background='var(--gold)';btn.style.color='var(--black)';
+  setTimeout(()=>{btn.innerHTML='✅ Submit My Review';btn.style.background='var(--emerald)';btn.style.color='#fff';},2000);
+}
+
+async function deleteReview(id){
+  myReviews=myReviews.filter(r=>r.id!==id);
+  try{await window.storage.set(STORAGE_KEY,JSON.stringify(myReviews));}catch(e){}
+  renderMyReviews();
+}
+
+function renderMyReviews(){
+  const container=document.getElementById('myReviews');
+  if(!myReviews.length){container.innerHTML='';return;}
+  container.innerHTML='<h4 style="font-family:Playfair Display,serif;font-size:1.3rem;margin-bottom:1rem;text-align:center">My Reviews ('+myReviews.length+')</h4>'+
+    myReviews.map(r=>{
+      const stars='★'.repeat(r.rating)+'<span style="color:var(--border)">'+'★'.repeat(5-r.rating)+'</span>';
+      const initials=r.name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+      const colors=['#e74c3c','#3498db','#9b59b6','#27ae60','#e67e22','#1abc9c','#d35400','#2c3e50'];
+      const col=colors[r.id%colors.length];
+      return `<div class="testi-card" style="margin-bottom:1rem;position:relative;background:#fff">
+        <div class="verified" style="top:1rem;right:1rem">🔒 Only You</div>
+        <div class="stars" style="color:var(--gold)">${stars}</div>
+        <div class="quote">"${r.text}"</div>
+        <div class="author">
+          <div class="author-avatar" style="background:${col}">${initials}</div>
+          <div class="author-info"><div class="name">${r.name}</div><div class="role">${r.role?r.role+' · ':''}${r.city||'Kenya'}</div><div class="date">${r.date}</div></div>
+        </div>
+        <button onclick="deleteReview(${r.id})" style="position:absolute;bottom:1rem;right:1rem;background:none;border:1px solid #fca5a5;color:#ef4444;font-size:.72rem;padding:.3rem .7rem;border-radius:6px;cursor:pointer;font-weight:600;transition:.2s" onmouseover="this.style.background='#fef2f2'" onmouseout="this.style.background='none'">🗑 Delete</button>
+      </div>`;
+    }).join('');
+}
+
+loadReviews();
+</script>
+</body>
+</html>
